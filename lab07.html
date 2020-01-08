@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+    #draggable {
+      width: 23%;
+      height: 40%;
+      position: absolute;
+      right: 0px;
+    }
+
+    #dragNose {
+      width: 23%;
+      height: 40%;
+      position: absolute;
+      right: 0px;
+      cursor: move;
+      z-index: 10;
+    }
+
+    #dragBody {
+      width: 40%;
+      height: 70%;
+      position: absolute;
+      right: 0px;
+      cursor: move;
+      z-index: 10;
+    }
+
+    #dragEyes {
+      width: 26%;
+      height: 47%;
+      position: absolute;
+      right: 0px;
+      cursor: move;
+      z-index: 10;
+    }
+
+    #dragMouth {
+      width: 51%;
+      height: 82%;
+      position: absolute;
+      right: 0px;
+      cursor: move;
+      z-index: 10;
+    }
+
+    #dragHat {
+      width: 40%;
+      height: 70%;
+      position: absolute;
+      right: 0px;
+      cursor: move;
+      z-index: 10;
+    }
+
+    #div1 {
+      position: absolute;
+      left: 10px;
+      width: 500px;
+      height: 500px;
+      border: 5px solid darkblue;
+    }
+  </style>
+
+  </script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+    $(function () {
+      $("#draggable").draggable();
+
+    });
+  </script>
+
+</head>
+
+<body style="text-align: center; background-color: lightblue;">
+  <h1>Nathalie Ng ID: 500921963</h1>
+  <h2>Drag Mr.PotatoHead body parts to complete example image</h2>
+  <a href="http://scs.ryerson.ca/~nmng/lab07/lab07.html" type="button" class="btn btn-primary btn-lg">Reset</a>
+  <br>
+  <img src="mrpotato.png" width=10% height=20%><br><br>
+
+  <div id="div1"></div>
+  <img id="dragBody" src="body.png">
+  <img id="dragNose" src="nose.png">
+  <img id="dragHat" src="hat.png">
+  <img id="dragEyes" src="eyes.png">
+  <img id="dragMouth" src="mouth.png">
+
+  <img id="draggable" src="mrpotato.png" width=30% height=40%> <br><br>
+
+  <script>
+    dragElement(document.getElementById("dragBody"));
+    dragElement(document.getElementById("dragNose"));
+    dragElement(document.getElementById("dragHat"));
+    dragElement(document.getElementById("dragEyes"));
+    dragElement(document.getElementById("dragMouth"));
+
+
+    function dragElement(elmnt) {
+      var pos1 = 0,
+        pos2 = 0,
+        pos3 = 0,
+        pos4 = 0;
+      if (document.getElementById(elmnt.id + "header")) {
+        document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+      } else {
+        elmnt.onmousedown = dragMouseDown;
+      }
+
+      function dragMouseDown(e) {
+        e = e || window.event;
+        e.preventDefault();
+
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        document.onmouseup = closeDragElement;
+        document.onmousemove = elementDrag;
+      }
+
+      function elementDrag(e) {
+        e = e || window.event;
+        e.preventDefault();
+        pos1 = pos3 - e.clientX;
+        pos2 = pos4 - e.clientY;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+        elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+      }
+
+      function closeDragElement() {
+        document.onmouseup = null;
+        document.onmousemove = null;
+      }
+    }
+  </script>
+</body>
+
+</html>

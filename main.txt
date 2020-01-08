@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>My first webpage</title>
+</head>
+<body>
+        
+<h1><font color = "666699">Nathalie Ng</font></h1>
+<p><font color = "3A3799">ID: 500921963</font></p>
+<p>Fruit I like:</p>
+
+<ul>
+<li> apples </li>
+<li> oranges </li>
+<li> blueberries </li>
+</ul>
+
+<p>Another List:</p>
+
+<ol>
+<li> Coffee </li>
+<li> Tea</li>
+</ol>
+
+<p>A tag I've never used before: table tag</p>
+<table border = "1"><caption><span style="text-decoration: underline;">Courses through the week</span></caption>
+<tr>
+    <th>Course Code</th>
+    <th>Day</th>
+</tr>
+
+<tr>
+    <td>CPS530</td>
+    <td>Tuesday</td>
+</tr>
+<tr>
+    <td>MTH108</td>
+    <td>Monday</td>
+</tr>
+<tr>
+    <td>CPS305</td>
+    <td>Friday</td>
+</tr>
+</table>
+
+<a href="https://validator.nu/?doc=http%3A%2F%2Fwww.scs.ryerson.ca%2F%7Enmng%2F"><strong><h3>Validation Report</h3></strong></a>
+<a href="http://www.scs.ryerson.ca/~nmng/technical.html"><strong><h3>Technical Report</h3></strong></a>
+
+</body>
+</html>

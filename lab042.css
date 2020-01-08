@@ -1,0 +1,60 @@
+body{
+    background-color: burlywood;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: purple;
+    text-align: center;
+
+}
+
+p{
+    border-left: 6px solid purple;
+    border-right: 6px solid purple;    
+    background-color: lightblue;
+    border-width: 50%;
+}
+h1{
+    color: darkblue;
+    font-size: 200%;
+    text-align: center;
+
+}
+h2{
+    color: purple;
+    font-size: 100%;
+    text-align: center;
+}
+
+input[type=text]{
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea{
+    width: 70%;
+    height: 70%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=submit], input[type=reset]{
+    width: 50%;
+    background-color:lightblue;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover, input[type=reset]:hover{
+    background-color: orange;
+  }

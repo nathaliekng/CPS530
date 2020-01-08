@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lab 6 Part 2</title>
+</head>
+<body style="text-align: center;">
+    <h2>Nathalie Ng ID: 500921963</h2><br><br>
+    
+    <form name="myForm" action="http://www2.scs.ryerson.ca/~nmng/cgi-bin/lab062/lab062.py" method="post">
+                Name: <input type="text" placeholder="Name" name="first" id="first" required onchange="isAlpha(document.myForm.first.value)"/><br>
+                Address: <input type="text" placeholder="10 Dundas Street" name="address" id="address"/><br>
+                Phone number: <input type="text" placeholder="123-456-7890" name="phone" id="phone" required onchange="lengthRestriction(document.myForm.phone.value)"/><br>
+                <input type="button" value="Submit (Ruby)" onclick="submitOption('ruby')"/>
+                <input type="button" value="Submit (Python)" onclick="submitOption('python')"/>
+    </form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+
+    function submitOption(option){
+        var nameCheck=isAlpha(document.myForm.first.value);
+        var phoneCheck=lengthRestriction(document.myForm.phone.value);
+        
+        if(nameCheck && phoneCheck){
+            if(option=="ruby"){
+                document.forms.myForm.action="lab062.rb";
+            }
+            else{
+                document.forms.myForm.action="http://www2.scs.ryerson.ca/~nmng/cgi-bin/lab062/lab062.py";
+            }
+            document.forms.myForm.submit();
+        }
+        else{
+            if(!nameCheck && !phoneCheck){
+                alert("Name must only contain letters and phone number must be correct format");
+            }
+            else if(nameCheck && !phoneCheck){
+                alert("Phone number must be in correct format");
+            }
+            else{
+                alert("Name must only contain letters");
+            }
+        }
+    }
+
+    function isAlpha(name){
+        var alpha=/^[a-zA-Z ]+$/;
+        if(name.length >=1 && alpha.test(name)){
+            return true;
+        }
+        else{
+            document.myForm.first.focus();
+            return false;
+        }
+    }
+
+    
+    function lengthRestriction(numbers){
+        var phoneNum=/^[0-9]{3}[\s.-][0-9]{3}[\s.-][0-9]{4}$/;
+        if(numbers.length>10 && phoneNum.test(numbers)){
+            return true;
+        }
+        else{
+            document.myForm.phone.focus();
+            return false;
+        }
+    }
+
+
+    </script>    
+
+</body>
+</html>

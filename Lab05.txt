@@ -1,0 +1,95 @@
+Part 1:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <?php session_start(); 
+    if(isset($_SESSION['views']))
+        $_SESSION['views'] = $_SESSION['views']+ 1;
+    else
+        $_SESSION['views'] = 1;
+    echo "Visits from current user = ". $_SESSION['views'];
+    echo "<br>"
+    ?>
+    Enter the number 
+    <form action="process.php" method="post">
+        Row:<input name = 'row' type="text">
+        Col:<input name = 'col' type="text">
+        <input type="submit">
+    </form>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<?php
+    $row = $_POST["row"];
+    $col = $_POST["col"];
+    $mult=array(array());
+    if($row<3 or $row>12 or $col<3 or $col>12){
+        echo "Please enter values between 3 and 12"; }
+    else {
+        echo "<table align=\"center\">";
+        for ($i = 1; $i <=$row; $i++) {
+            echo "<tr><td>";
+            for ($j = 1; $j <=$col; $j++) {
+                $mult[$i][$j]=$i*$j;
+                echo $mult[$i][$j];
+                echo "</td><td>";
+            }
+        }
+        echo "</table>";
+    }
+
+    
+?>
+</body>
+</html>
+
+
+
+PART 2:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <%
+    dim visits
+    dim last
+    last=request.cookies("Time")
+    visits=request.cookies("Visits")
+
+    if visits="" then
+        response.write("This is your first time visiting this webpage!<br>")
+        response.Cookies("Time") = DateAdd("h", 3, Now())
+        response.cookies("Visits")=1
+    else
+        response.write("The last time you visited this webpage was: <br> " & last)
+        response.Cookies("Time")=DateAdd("h", 3, Now())
+    end if
+
+        getColor = request.querystring("Color")
+        response.write("<body style = 'background-color: "&getColor&"'>")
+    %>
+
+</body>
+</html>

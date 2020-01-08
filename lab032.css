@@ -1,0 +1,20 @@
+@font-face {
+    font-family: Osaka;
+    src: url('OsakaMustache.otf');
+}
+
+body{
+    background-color:lightblue;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    color: darkslategrey;
+}
+
+#header{
+    font-family:'Osaka';
+    font-size: 500%;
+}
+p{
+    color: darkslateblue;
+    font-size: 150%;
+}
